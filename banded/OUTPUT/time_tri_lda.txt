@@ -1,0 +1,323 @@
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                              leading dim of rhs: 17
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 63.3619
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                              leading dim of rhs: 33
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 54.5641
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                              leading dim of rhs: 65
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 52.6876
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                              leading dim of rhs: 129
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 53.9826
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                              leading dim of rhs: 257
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 51.6089
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                              leading dim of rhs: 17
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 68.5361
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                              leading dim of rhs: 33
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 51.2143
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                              leading dim of rhs: 65
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 43.8207
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                              leading dim of rhs: 129
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 42.9691
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                              leading dim of rhs: 257
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 39.0126
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                              leading dim of rhs: 17
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 24.3203
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                              leading dim of rhs: 33
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 20.6893
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                              leading dim of rhs: 65
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 19.7236
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                              leading dim of rhs: 129
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 20.0868
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                              leading dim of rhs: 257
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 19.306
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                              leading dim of rhs: 17
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 9.94797
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                              leading dim of rhs: 33
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 11.1718
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                              leading dim of rhs: 65
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 12.1378
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                              leading dim of rhs: 129
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 12.7863
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                              leading dim of rhs: 257
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 12.6788
+
+
+                    *** new matrix every trial ***
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                              leading dim of rhs: 17
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 148.828
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                              leading dim of rhs: 33
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 128.087
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                              leading dim of rhs: 65
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 114.476
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                              leading dim of rhs: 129
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 111.233
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                              leading dim of rhs: 257
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 105.844
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                              leading dim of rhs: 17
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 107.058
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                              leading dim of rhs: 33
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 86.9684
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                              leading dim of rhs: 65
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 74.0756
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                              leading dim of rhs: 129
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 70.206
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                              leading dim of rhs: 257
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 66.072
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                              leading dim of rhs: 17
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 33.492
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                              leading dim of rhs: 33
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 27.9784
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                              leading dim of rhs: 65
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 25.0756
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                              leading dim of rhs: 129
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 24.3105
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                              leading dim of rhs: 257
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 23.6864
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                              leading dim of rhs: 17
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 9.89629
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                              leading dim of rhs: 33
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.9244
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                              leading dim of rhs: 65
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 11.0149
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                              leading dim of rhs: 129
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.8689
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                              leading dim of rhs: 257
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 11.2006
+

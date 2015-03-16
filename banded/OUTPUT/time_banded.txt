@@ -1,0 +1,283 @@
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 16
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 210.851
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 32
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 186.366
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 64
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 187.771
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 128
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 169.962
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 256
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 167.929
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 16
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 153.847
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 32
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 138.645
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 64
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 138.403
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 128
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 134.879
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 256
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 134.377
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 16
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 95.1304
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 32
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 93.385
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 64
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 93.0415
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 128
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 93.4067
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 256
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 95.6807
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 16
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 108.309
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 32
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 137.45
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 64
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 148.295
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 128
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 184.527
+
+                     Timing Banded (l,u =2) Solver
+                          reuses same factrization
+                                               n: 256
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 192.652
+
+
+                    *** new matrix every trial ***
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 16
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 534.153
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 32
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 470.898
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 64
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 429.938
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 128
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 413.915
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 256
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 405.506
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 16
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 305.98
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 32
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 279.841
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 64
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 260.829
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 128
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 252.999
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 256
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 252.087
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 16
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 126.703
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 32
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 121.966
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 64
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 117.453
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 128
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 116.2
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 256
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 114.341
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 16
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 89.4116
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 32
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 113.626
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 64
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 123.462
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 128
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 162.722
+
+                     Timing Banded (l,u =2) Solver
+                            new matrix every trial
+                                               n: 256
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 169.651
+

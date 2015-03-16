@@ -1,0 +1,283 @@
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 61.5989
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 55.5244
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 53.4233
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 52.6088
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 51.9789
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 69.6385
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 52.3483
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 44.3406
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 41.2607
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 39.3518
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 24.3406
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 20.7031
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 19.2242
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 19.164
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 19.7303
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 16
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.2946
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 32
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.8166
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 64
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 11.5135
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 128
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 11.9183
+
+                         Timing Tridiagonal Solver
+                          reuses same factrization
+                                               n: 256
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 13.02
+
+
+                    *** new matrix every trial ***
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 133.866
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 113.754
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 105.088
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 99.7602
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                                            nrhs: 1
+                                       nmlzed by n
+                 cycles: 97.5591
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 106.393
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 82.0392
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 71.081
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 64.7915
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                                            nrhs: 2
+                                       nmlzed by n
+                 cycles: 62.1331
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 32.6347
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 26.7138
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 24.2545
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 22.9984
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                                            nrhs: 10
+                                       nmlzed by n
+                 cycles: 22.5495
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 16
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 9.79367
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 32
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.6636
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 64
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.8256
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 128
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.4814
+
+                         Timing Tridiagonal Solver
+                            new matrix every trial
+                                               n: 256
+                                nrhs: max possible
+                                       nmlzed by n
+                 cycles: 10.5877
+

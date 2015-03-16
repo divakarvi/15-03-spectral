@@ -1,0 +1,9 @@
+python files to generate figures:
+sinpiya10.py
+sinpiya1e6.py
+sinpiya2e4.py
+sinkpiya2e4.py
+sinpiya1e6_fixedN.py
+sinkpiya1e6_fixedN.py
+
+tmp.py used to rename script and data files

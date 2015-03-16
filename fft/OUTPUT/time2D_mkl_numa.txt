@@ -1,0 +1,124 @@
+                              2D FFT MKL threading
+                                               m: 1024
+                                               n: 1024
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 1
+ cycles per FFT (nmlzd): 1.426888
+              above * T: 1.426888
+
+      number of threads: 2
+ cycles per FFT (nmlzd): 0.735775
+              above * T: 1.471550
+
+      number of threads: 4
+ cycles per FFT (nmlzd): 0.387459
+              above * T: 1.549837
+
+      number of threads: 8
+ cycles per FFT (nmlzd): 0.218175
+              above * T: 1.745399
+
+      number of threads: 10
+ cycles per FFT (nmlzd): 0.194170
+              above * T: 1.941701
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.176263
+              above * T: 2.115159
+
+
+
+                              2D FFT MKL threading
+                                               m: 2187
+                                               n: 2187
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 1
+ cycles per FFT (nmlzd): 2.865953
+              above * T: 2.865953
+
+      number of threads: 2
+ cycles per FFT (nmlzd): 1.441772
+              above * T: 2.883544
+
+      number of threads: 4
+ cycles per FFT (nmlzd): 0.725954
+              above * T: 2.903817
+
+      number of threads: 8
+ cycles per FFT (nmlzd): 0.378120
+              above * T: 3.024959
+
+      number of threads: 10
+ cycles per FFT (nmlzd): 0.312288
+              above * T: 3.122884
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.278400
+              above * T: 3.340801
+
+
+
+                              2D FFT MKL threading
+                                               m: 3125
+                                               n: 3125
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 1
+ cycles per FFT (nmlzd): 2.589707
+              above * T: 2.589707
+
+      number of threads: 2
+ cycles per FFT (nmlzd): 1.318411
+              above * T: 2.636822
+
+      number of threads: 4
+ cycles per FFT (nmlzd): 0.666775
+              above * T: 2.667101
+
+      number of threads: 8
+ cycles per FFT (nmlzd): 0.342301
+              above * T: 2.738412
+
+      number of threads: 10
+ cycles per FFT (nmlzd): 0.294735
+              above * T: 2.947354
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.264757
+              above * T: 3.177085
+
+
+
+                              2D FFT MKL threading
+                                               m: 12288
+                                               n: 12288
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 1
+ cycles per FFT (nmlzd): 1.909571
+              above * T: 1.909571
+
+      number of threads: 2
+ cycles per FFT (nmlzd): 0.976648
+              above * T: 1.953296
+
+      number of threads: 4
+ cycles per FFT (nmlzd): 0.517085
+              above * T: 2.068341
+
+      number of threads: 8
+ cycles per FFT (nmlzd): 0.371691
+              above * T: 2.973530
+
+      number of threads: 10
+ cycles per FFT (nmlzd): 0.348042
+              above * T: 3.480416
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.334181
+              above * T: 4.010171
+
+
+

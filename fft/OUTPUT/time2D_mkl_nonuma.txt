@@ -1,0 +1,44 @@
+                       2D FFT by composing 1D FFTs
+                                               m: 1024
+                                               n: 1024
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.241386
+              above * T: 2.896628
+
+
+
+                       2D FFT by composing 1D FFTs
+                                               m: 2187
+                                               n: 2187
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.293732
+              above * T: 3.524782
+
+
+
+                       2D FFT by composing 1D FFTs
+                                               m: 3125
+                                               n: 3125
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.285688
+              above * T: 3.428255
+
+
+
+                       2D FFT by composing 1D FFTs
+                                               m: 12288
+                                               n: 12288
+       nmlzd using division by nm(log2(n)+log2(m))
+
+      number of threads: 12
+ cycles per FFT (nmlzd): 0.401922
+              above * T: 4.823069
+
+
+

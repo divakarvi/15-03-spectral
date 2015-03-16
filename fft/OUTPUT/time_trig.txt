@@ -1,0 +1,20 @@
+                       DCT Timing nlg2n normalized
+                                               n: 16
+  forward cycles (nmlz): 5.864328
+ backward cycles (nmlz): 5.050379
+                       DCT Timing nlg2n normalized
+                                               n: 32
+  forward cycles (nmlz): 4.028482
+ backward cycles (nmlz): 3.390571
+                       DCT Timing nlg2n normalized
+                                               n: 64
+  forward cycles (nmlz): 3.257406
+ backward cycles (nmlz): 2.861477
+                       DCT Timing nlg2n normalized
+                                               n: 128
+  forward cycles (nmlz): 2.840037
+ backward cycles (nmlz): 2.835709
+                       DCT Timing nlg2n normalized
+                                               n: 1024
+  forward cycles (nmlz): 2.069858
+ backward cycles (nmlz): 2.015862
