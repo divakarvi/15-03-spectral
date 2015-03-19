@@ -1,7 +1,9 @@
 #ifndef __BVPSolvei13July2013__
 #define __BVPSolvei13July2013__
 #include "../banded/tridiag.hh"
-#include "../fft/trig.hh"
+#include "../trig/trig.hh"
+
+void cheb(double *restrict x, int M);
 
 class BVPSolvei{
 private:

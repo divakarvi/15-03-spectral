@@ -3,28 +3,19 @@
 #include <fstream>
 #include <cmath>
 #include <unistd.h>
+#include <omp.h>
 #include "../utils/Random.hh"
 #include "../utils/utils.hh"
-#include "../globals/globals.hh"
 #include "../banded/tridiag.hh"
-#include "../fft/trig.hh"
+#include "../trig/trig.hh"
 #include "bvpi.hh"
-#include <omp.h>
 using namespace std;
 
-
-void init_global(int T, int M){
-	gl_init_nthreads(T);
-	double pe = 1.0;
-	gl_init_grid(M, M, 100, 100, pe);
-	gl_init_boxsize(2, 2);
-	gl_init_Re(100);
-}
-
 void test_hmg(double a, int M){
-	init_global(1, M);
 	BVPSolvei bvpi(a, M);
-	bvpi.initcheb(gl_chebi);
+	double chebpts[M+1];
+	cheb(chebpts, M);
+	bvpi.initcheb(chebpts);
 	DCT dct(M);
 	bvpi.initdct(dct);
 	bvpi.inithmg();
@@ -43,7 +34,7 @@ void test_hmg(double a, int M){
 	for(int i=0; i <= M; i++)
 		h1[i] = 0;
 	array_out(h1, M+1, 1, "DBG/f.txt");
-	
+
 	cout<<setw(50)<<"verifying T_0 u = 1, T_0 Du = 0"<<endl;
 	system("bvpi_verify.py");
 	cout<<endl;
@@ -58,8 +49,6 @@ void test_hmg(double a, int M){
 	cout<<setw(50)<<"verifying T_0 u = 0, T_0 Du = 1"<<endl;
 	system("bvpi_verify.py");
 	cout<<endl;
-	
-	gl_exit();
 }
 
 
@@ -68,10 +57,11 @@ void test_hmg(double a, int M){
  * M = dimension of bvpi
  * nrhs = nrhs per thread
  * T = number of threads 
+ * test with g = 0
  */
 void test_bvpi(double *aa, int M, int nrhs, int T){
-	init_global(T, M);
-	assrt(gl_state==GL_INIT);
+	double gl_chebi[M+1];
+	cheb(gl_chebi, M);
 	double *f = (double *)MKL_malloc((M+1)*nrhs*T*sizeof(double), 64);
 	double *u = (double *)MKL_malloc((M+1)*nrhs*T*sizeof(double), 64);
 	double *du = (double *)MKL_malloc((M+1)*nrhs*T*sizeof(double), 64);
@@ -151,7 +141,6 @@ void test_bvpi(double *aa, int M, int nrhs, int T){
 	MKL_free(f);
 	MKL_free(u);
 	MKL_free(du);
-	gl_exit();
 }
 
 
@@ -160,10 +149,11 @@ void test_bvpi(double *aa, int M, int nrhs, int T){
  * M = dimension of bvpi
  * nrhs = nrhs per thread
  * T = number of threads 
+ * test with g != 0
  */
 void test_bvpix(double *aa, int M, int nrhs, int T){
-	init_global(T, M);
-	assrt(gl_state==GL_INIT);
+	double gl_chebi[M+1];
+	cheb(gl_chebi, M);
 	double *f = (double *)MKL_malloc((M+1)*nrhs*T*sizeof(double), 64);
 	double *g = (double *)MKL_malloc((M+1)*nrhs*T*sizeof(double), 64);
 	double *u = (double *)MKL_malloc((M+1)*nrhs*T*sizeof(double), 64);
@@ -248,12 +238,12 @@ void test_bvpix(double *aa, int M, int nrhs, int T){
 	MKL_free(f);
 	MKL_free(u);
 	MKL_free(du);
-	gl_exit();
 }
 
 
 
 int main(){
+	verify_dir("DBG");
 	{/*
 		double a[] = {1, 20, 47.7, .01};
 		int M[] = {20, 50, 100, 5};
@@ -262,7 +252,7 @@ int main(){
 	 */}
 
 	{/*
-		const int T = 12;
+		const int T = 16;
 		double aa[T];
 		for(int t=0; t < T; t++)
 			aa[t] = (t+2)*(t+3)*(t+4)*(t+5)+sqrt(PI); 
@@ -272,12 +262,12 @@ int main(){
 	 */}
 
 	{
-		const int T = 12;
+		const int T = 16;
 		double aa[T];
 		for(int t=0; t < T; t++)
 			aa[t] = (t+2)*(t+3)*(t+4)*(t+5)+sqrt(PI); 
 		int M = 42;
 		int nrhs = 4;
 		test_bvpix(aa, M, nrhs, T);
-	 }
+	}
 }

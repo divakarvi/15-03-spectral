@@ -1,6 +1,12 @@
 #include "bvpi.hh"
 #include "../utils/utils.hh"
+#include <cmath>
 #include <mkl.h>
+
+void cheb(double *restrict x, int M){
+	for(int j=0; j <= M; j++)
+		x[j] = cos(j*PI/M);
+}
 
 BVPSolvei::BVPSolvei(double aa, int MM)
 	:state(0), a(aa),
