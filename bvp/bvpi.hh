@@ -24,7 +24,7 @@ public:
 	 */
 	void initcheb(double *chebi); //state moves to 2
 	void initdct(DCT& dcti); //state moves to 3
-	void inithmg(); //state move up to 4
+	void inithmg(); //state move up to 4 (homg solns are computed)
 	/*
 	 * particular soln(s) of (D^2 - a^2)u = f
 	 */
