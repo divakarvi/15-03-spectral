@@ -2,6 +2,9 @@
 #include "../trig/trig.hh"
 #include "bvpi.hh"
 #include "bvp4.hh"
+#include "../pyplot/pyplot.hh"
+
+#undef PLTUPH3
 
 BVP4fac::BVP4fac(double a, double b, int MM)
 	:M(MM), alpha(a, M), beta(b, M), dct(M)
@@ -40,6 +43,15 @@ BVP4fac::BVP4fac(double a, double b, int MM)
 	H[1+4*2] = h3[M];
 	H[2+4*2] = dux[0];
 	H[3+4*2] = dux[M];
+	
+	{
+#ifdef PLTUPH3
+		PyPlot plt("h3");
+		plt.plot(chebi, h3, M+1);
+		plt.title("h3");
+		plt.show();
+#endif
+	}
 
 	h4 = beta.geth2();
 	dux = beta.getd2();
@@ -50,6 +62,8 @@ BVP4fac::BVP4fac(double a, double b, int MM)
 	
 	int dim = 4, info; 
 	dgetrf_(&dim, &dim, H, &dim, ipiv, &info);
+
+	w = new double[M+1];
 }
 
 
@@ -58,14 +72,13 @@ BVP4fac::~BVP4fac(){
 	delete[] h2;
 	delete[] du;
 	delete[] chebi;
+	delete[] w;
 }
 
-void solve(const double *restrict f, double *restrict u){
-	alpha.solve(f, w, dw, 1);
-	for(int j=0; j <= M; j++)
-		w[j] = 0.0;
-	beta.solvepx(w, dw, u, du);
-	rhs[4];
+void BVP4fac::solve(const double *restrict f, double *restrict u){
+	alpha.solvep(f, w, du, 1);
+	beta.solvep(w, u, du, 1);
+	double rhs[4];
 	rhs[0] = -u[0];
 	rhs[1] = -u[M];
 	rhs[2] = -du[0];
@@ -76,7 +89,16 @@ void solve(const double *restrict f, double *restrict u){
 	int dim = 4;
 	int info;
 	dgetrs_(trans, &dim, &nrhs, H, &dim, ipiv, rhs, &dim, &info);
-	
+
+	{
+#ifdef PLTUPH3
+		PyPlot plt("up");
+		plt.plot(chebi, u, M+1);
+		plt.title("up");
+		plt.show();
+#endif
+	}
+
 	for(int j=0; j <= M; j++)
 		u[j] += rhs[0]*h1[j] + 
 			rhs[1]*h2[j] +

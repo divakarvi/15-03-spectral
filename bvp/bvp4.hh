@@ -5,16 +5,16 @@
 
 class BVP4fac{
 private:
-	int M
+	int M;
 	BVPSolvei alpha;
 	BVPSolvei beta;
 
 	double *chebi;
 	DCT dct;
 
-	double *h1, *h2, *h3, *h4, *du, *w, *dw;
+	double *h1, *h2, *h3, *h4, *du, *w;
 	double H[16];
-	int ipiv[4]
+	int ipiv[4];
 public:
 	BVP4fac(double a, double b,  int MM);
 	~BVP4fac();
