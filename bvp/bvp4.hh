@@ -1,6 +1,6 @@
 #ifndef __BVP22Mar15DV__
 #define __BVP22Mar15DV__
-#include "../trig/trig.hh"
+#include "../fft/trig.hh"
 #include "bvpi.hh"
 
 class BVP4fac{

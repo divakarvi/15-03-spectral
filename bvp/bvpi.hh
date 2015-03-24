@@ -1,7 +1,7 @@
 #ifndef __BVPSolvei13July2013__
 #define __BVPSolvei13July2013__
 #include "../banded/tridiag.hh"
-#include "../trig/trig.hh"
+#include "../fft/trig.hh"
 
 void cheb(double *restrict x, int M);
 

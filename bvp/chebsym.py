@@ -6,7 +6,7 @@ from sympy.abc import n, x
 
 def intg(k, scale = 1):
     """
-    return integral of T_{n+k} as a dictionary
+    return integral of T_{n+k} as a dictionary and as a function of n
     """
     d = dict()
     d[k+1] = 1/(2*(n+k+1))*scale
@@ -30,7 +30,8 @@ def iterate_once(d):
 
 def integral(k):
     """
-    return k-fold integral of T_n as a dictionary
+    return coeffs of T_{n+k} in  k-fold integral of T_n as a dictionary 
+    and as functions of n
     """
     d = intg(0)
     for i in range(0,k-1):
@@ -39,7 +40,8 @@ def integral(k):
 
 def coeff(k):
     """
-    return the coeff of T_n in the k-fold integral of a cheb series
+    return the coeffs of T_n in the k-fold integral of 
+    T_{n-k} ... T_{n+k} as functions of n
     """
     d = integral(k)
     ans = dict()
@@ -56,7 +58,7 @@ def show_dict(d):
 
 
 if __name__ == '__main__':
-    d = integral(4)
+    d = coeff(2)
     show_dict(d)
     print('----------------')
     d = coeff(4)

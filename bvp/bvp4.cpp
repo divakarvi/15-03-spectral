@@ -1,5 +1,5 @@
 #include <mkl.h>
-#include "../trig/trig.hh"
+#include "../fft/trig.hh"
 #include "bvpi.hh"
 #include "bvp4.hh"
 #include "../pyplot/pyplot.hh"

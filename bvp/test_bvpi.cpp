@@ -7,7 +7,7 @@
 #include "../utils/Random.hh"
 #include "../utils/utils.hh"
 #include "../banded/tridiag.hh"
-#include "../trig/trig.hh"
+#include "../fft/trig.hh"
 #include "bvpi.hh"
 using namespace std;
 

@@ -1,7 +1,7 @@
 include ../makevars.mk
 CFLAGSXX := $(MKLINC) #-openmp #for test_bvpi
 LIBS := $(MKLLIBS) #-openmp #for test_bvpi
-MODS := ../utils ../trig ../banded ../pyplot
+MODS := ../utils ../fft ../banded ../pyplot
 #########
 .PHONY: $(MODS)
 $(MODS):
@@ -16,9 +16,9 @@ test_bvpi.o: test_bvpi.cpp
 include test_bvpi.d
 
 test_bvpi.exe: bvpi.o test_bvpi.o 			\
-	../utils ../trig ../banded 			\
+	../utils ../fft ../banded 			\
 	../utils/utils.o 				\
-	../trig/trig.o					\
+	../fft/trig.o					\
 	../banded/tridiag.o 				
 
 bvp4.o: bvp4.cpp
@@ -28,8 +28,8 @@ test_bvp4.o: test_bvp4.cpp
 include test_bvp4.d
 
 test_bvp4.exe: test_bvp4.o bvp4.o bvpi.o	\
-	../utils ../trig ../banded ../pyplot	\
+	../utils ../fft ../banded ../pyplot	\
 	../utils/utils.o			\
 	../pyplot/pyplot.o			\
-	../trig/trig.o				\
+	../fft/trig.o				\
 	../banded/tridiag.o			
