@@ -56,7 +56,34 @@ def show_dict(d):
             continue
         print('{0}\t--->\t{1}'.format(k, d[k]))
 
+def show_derv1():
+    u = 16*x**5 - 20*x**3 + 5*x;
+    from sympy.abc import a, b
+    from sympy import diff
+    print(u)
+    print(diff(u, x, 4) - (a*a+b*b)*diff(u, x, 2) + a*a*b*b*u)
 
+def show_derv2():
+    from sympy.abc import t
+    k = sympy.symbols('k', integer=True)
+    def diff(f):
+        g = sympy.diff(f, t)/-sympy.sin(t)
+        g = sympy.simplify(g)
+        return g
+    f = sympy.cos(k*t)
+    g = diff(diff(f))
+    print('------------------')
+    print('2nd derv of T_k(x):\t{0}'.format(g))
+    print('            at 0/1:\t{0}'.
+          format(sympy.simplify(sympy.limit(g, t, 0))))
+    print('          at pi/-1:\t{0}'.format(
+        sympy.simplify(sympy.limit(g, t, sympy.pi))))
+    g = diff(diff(g))
+    print('4th derv of T_k(x):\t{0}'.format(g))
+    print('            at 0/1:\t{0}'.
+          format(sympy.simplify(sympy.limit(g, t, 0))))
+    print('          at pi/-1:\t{0}'.format(
+        sympy.simplify(sympy.limit(g, t, sympy.pi))))
 
 if __name__ == '__main__':
     d = coeff(2)
@@ -64,6 +91,8 @@ if __name__ == '__main__':
     print('----------------')
     d = coeff(4)
     show_dict(d)
-    
-    
+    print('----------------')
+    show_derv1()
+    print('----------------')
+    show_derv2()
     
