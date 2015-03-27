@@ -23,6 +23,8 @@ public:
 
 };
 
+enum DCTONOFF {DCTON, DCTOFF};
+
 class BVP4si{
 private:
 	double a, b; //parameters in (D^4 + a D^2 + b)u = f
@@ -31,6 +33,9 @@ private:
 	BandedSolve odd;
 	DCT dct;
 	double *space;
+	double *h1, *h2, *h3, *h4;
+	double H[16];
+	int ipiv[4];
 public:
 	BVP4si(double aa, double bb, int MM);
 	~BVP4si();
@@ -39,9 +44,12 @@ public:
 	 * u[0...M] is particular soln of (D^4 + a D^2 + b)u = f
 	 * with T0, T1, T2, T3 cheb coeffs equal to zero
 	 * dup1 and dum1 are the values of Du at +1 and -1, respectively
+	 * if flag = DCTOFF a final bwd DCT is omitted and the u returned
+	 * is the Cheby series
 	 */
 	void solvep(const double *restrict f, double *restrict u,
-		    double& dup1, double& dum1);
+		    double& dup1, double& dum1, enum DCTONOFF flag = DCTON);
+	void solve(const double *restrict f, double *restrict u);
 };
 
 #endif

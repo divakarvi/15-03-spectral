@@ -79,6 +79,7 @@ BVP4fac::~BVP4fac(){
 void BVP4fac::solve(const double *restrict f, double *restrict u){
 	alpha.solvep(f, w, du, 1);
 	beta.solvep(w, u, du, 1);
+
 	double rhs[4];
 	rhs[0] = -u[0];
 	rhs[1] = -u[M];
