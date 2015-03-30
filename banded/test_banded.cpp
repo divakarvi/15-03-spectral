@@ -12,7 +12,7 @@ using namespace std;
  * n = matrix dimension
  * leaves data in DBG
  */
-void test(int n, int nrhs){
+void banded(int n, int nrhs){
 	cout<<setw(50)<<"testing banded solve with l=u=2"<<endl;
 	cout<<setw(50)<<"n: "<<n<<endl;
 	assrt(n>=4);
@@ -57,6 +57,27 @@ void test(int n, int nrhs){
 	delete[] tmp;
 }
 
+void cholesky(){
+	int n = 5;
+	double u2[n-2], u1[n-1], d[n];
+	for(int j=0; j < n-2; j++)
+		u2[j] = 0;
+	for(int j=0; j < n-1; j++)
+		u1[j] = -1;
+	for(int j=0; j < n; j++)
+		d[j] = 2.0;
+
+	CholeskyBanded cb(n);
+	cb.setu2(u2);
+	cb.setu1(u1);
+	cb.setdiag(d);
+	cb.factor();
+
+	double *A = cb.getA();
+	array_out(A, 3, n, 3, "tmp.dat");
+}
+
 int main(){
-	test(5, 10);
+	//banded(5, 10);
+	cholesky();
 }

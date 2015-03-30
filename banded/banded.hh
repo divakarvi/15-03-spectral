@@ -15,11 +15,12 @@ public:
 	/*
 	 * size of u2 = n-2 
 	 * size of u1 = n-1 
-	 * size of diag = n
-	 * size of l1 = n-1
-	 * size of l2 = n-2
-	 * setu2(), setu1(), setdiag(), setl1(), setl2()
-	 * must be called before factor() and in that order
+	 * size of diag = n 
+	 * size of l1 = n-1 
+	 * size of l2 = n-2 
+	 * setu2(), setu1(), setdiag(),
+	 * setl1(), setl2() must be called before factor() and in that
+	 * order
 	 */
 	void setu2(double *u2);//size = (n-2) doubles
 	void setu1(double *u1);//size = (n-1) doubles
@@ -36,4 +37,34 @@ public:
 	void solve(double *f, int nrhs);
 	double *getA(){ return A;}
 };
+
+class CholeskyBanded{
+private:
+	int n;
+	double *A; //double [3xn]
+	int state;
+public:
+	CholeskyBanded(int ni);
+	~CholeskyBanded();
+	/*
+	 * size of u2 = n-2 
+	 * size of u1 = n-1 
+	 * size of diag = n 
+	 * setu2(), setu1(), setdiag() must be called before factor()
+	 * and in that order
+	 */
+	void setu2(double *u2);//size = (n-2) doubles
+	void setu1(double *u1);//size = (n-1) doubles
+	void setdiag(double *d);//size = n doubles
+	void factor();
+	/*
+	 * f = (input) rhs
+	 *   = (output) solution
+	 * factor() must be called before solve()
+	 */
+	void solve(double *f, int nrhs);
+	double *getA(){ return A;}
+	
+};
+
 #endif

@@ -81,3 +81,66 @@ void BandedSolve::solve(double *f, int nrhs){
 	dgbtrs_(trans, &n, &klu, &klu, &nrhs, A, &lda, ipiv, f, &ldf, &info);
 	assrt(info==0);
 }
+
+CholeskyBanded::CholeskyBanded(int ni)
+	:n(ni){
+	state = 0;
+	A = new double[3*n];
+}
+
+CholeskyBanded::~CholeskyBanded(){
+	delete[] A;
+}
+
+void CholeskyBanded::setu2(double *u2){
+	assrt(state == 0);
+	state = 1;
+	
+	int i = 0, j;
+	for(j = 2; j < n; j++)
+		A[i + j*3] = u2[j-2];
+}
+
+void CholeskyBanded::setu1(double *u1){
+	assrt(state == 1);
+	state = 2;
+
+	int i = 1, j;
+	for(j = 1; j < n; j++)
+		A[i + j*3] = u1[j-1];
+}
+
+
+void CholeskyBanded::setdiag(double *d){
+	assrt(state == 2);
+	state = 3;
+	
+	int i = 2, j;
+	for(j = 0; j < n; j++)
+		A[i+j*3] = d[j];
+}
+
+void CholeskyBanded::factor(){
+	assrt(state == 3);
+	state = 4;
+
+	char uplo[3] = "U";
+	int kd = 2;
+	int lda = 3;
+	int info;
+
+	dpbtrf_(uplo, &n, &kd, A, &lda, &info);
+}
+
+
+void CholeskyBanded::solve(double *f, int nrhs){
+	assrt(state == 4);
+
+	char uplo[3] = "U ";
+	int kd = 2;
+	int lda = 3;
+	int ldf = n;
+	int info;
+	
+	dpbtrs_(uplo, &n, &kd, &nrhs, A, &lda, f, &ldf, &info);
+}
