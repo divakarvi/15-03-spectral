@@ -8,11 +8,11 @@
 #define ek(k) (2.0/(2*(k)+1.0))
 #define gk(k) ((2*(k)+3.0)/(2*(k)+7.0))
 #define hk(k) (-(1.0+gk(k)))
-#define bk(k)  dk(k)*dk(k)*(ek(k) + hk(k)*hk(k)*ek(k+2) + gk(k)*gk(k)*ek(k+4))
-#define bkp2(k) dk(k)*dk(k+2)*(hk(k)*ek(k+2) + gk(k)*hk(k+2)*ek(k+4))
-#define bkp4(k) dk(k)*dk(k+4)*gk(k)*ek(k+4)
+#define bk(k)  dk(k)*dk(k)*(ek(k) + hk(k)*hk(k)*ek((k)+2) + gk(k)*gk(k)*ek((k)+4))
+#define bkp2(k) dk(k)*dk((k)+2)*(hk(k)*ek((k)+2) + gk(k)*hk((k)+2)*ek((k)+4))
+#define bkp4(k) dk(k)*dk((k)+4)*gk((k))*ek((k)+4)
 #define ck(k) (-2.0*(2*(k)+3.0)*dk(k)*dk(k)*hk(k))
-#define ckp2(k) (-2.0*(2.0*k+3)*dk(k)*dk(k+2))
+#define ckp2(k) (-2.0*(2.0*(k)+3)*dk(k)*dk((k)+2))
 #define ggk(k) (-2.0*(2*(k)+5)/(2*(k)+7))
 
 BVP4pg::BVP4pg(double aa, double bb, int MM)
@@ -37,6 +37,7 @@ BVP4pg::BVP4pg(double aa, double bb, int MM)
 	for(int k=0; 2*k <= M-4; k++)
 		d[k] = a*bk(2*k) + b*ck(2*k) + 1.0;
 	even.setdiag(d);
+
 
 	even.factor();
 	

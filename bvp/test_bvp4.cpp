@@ -175,8 +175,18 @@ void bvp4si(){
 	std::cout<<"BVP4fac test: error in sin(x) = "<<emax<<std::endl;
 }
 
+void bvp4pg(){
+	double a = 2.0;
+	double b = 0.0;
+	int M =  12;
+	BVP4pg bvp(a, b, M);
+	
+}
+
 int main(){
 	//bvp4fac();
 	//bvp4si_solvep();
-	bvp4si();
+	//bvp4si();
+
+	bvp4pg();
 }
