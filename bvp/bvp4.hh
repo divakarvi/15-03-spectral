@@ -4,6 +4,9 @@
 #include "../fft/trig.hh"
 #include "bvpi.hh"
 
+/*
+ * (D^2-a^2)*(D^2-b^2)u = f
+ */
 class BVP4fac{
 private:
 	int M;
@@ -25,6 +28,9 @@ public:
 
 enum DCTONOFF {DCTON, DCTOFF};
 
+/*
+ * (D^4 + a D^2 + b)u = f
+ */
 class BVP4si{
 private:
 	double a, b; //parameters in (D^4 + a D^2 + b)u = f
@@ -49,6 +55,22 @@ public:
 	 */
 	void solvep(const double *restrict f, double *restrict u,
 		    double& dup1, double& dum1, enum DCTONOFF flag = DCTON);
+	void solve(const double *restrict f, double *restrict u);
+};
+
+/*
+ * (D^4 - b*D^2 + a)u = f 
+ */
+class BVP4pg{
+private:
+	double a,b;
+	int M, Me, Mo;
+	CholeskyBanded even;
+	CholeskyBanded odd;
+	double *space;
+public:
+	BVP4pg(double aa, double bb, int MM);
+	~BVP4pg();
 	void solve(const double *restrict f, double *restrict u);
 };
 

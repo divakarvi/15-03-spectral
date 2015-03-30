@@ -35,3 +35,5 @@ test_bvp4.exe: test_bvp4.o bvp4si.o bvp4fac.o bvpi.o	\
 	../pyplot/pyplot.o			\
 	../fft/trig.o				\
 	../banded/tridiag.o ../banded/banded.o
+
+bvp4pg.o: bvp4pg.cpp
