@@ -180,6 +180,12 @@ void bvp4pg(){
 	double b = 0.0;
 	int M =  12;
 	BVP4pg bvp(a, b, M);
+
+	double f[M+1];
+	for(int i=0; i <= 12; i++)
+		f[i] = i;
+	double u[M+1];
+	bvp.solve(f, u);
 	
 }
 

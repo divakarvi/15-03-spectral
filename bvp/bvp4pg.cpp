@@ -87,12 +87,21 @@ void BVP4pg::solve(const double *restrict fi, double *restrict u){
 				 + ggk(2*k+1)*f[2*k+1+2]
 				 + gk(2*k+1)*f[2*k+1+4]);
 	odd.solve(ro, 1);
-
+	
+	/*
+	 *dbg
+	 */
+	for(int k=0; k < Me; k++)
+		re[k] = 2*k;
+	for(int k=0; k < Mo; k++)
+		ro[k] = 2*k+1;
+	
 	int j, k;
 	for(k=0; 2*k <= M-4; k++){
 		j = 2*k;
 		f[j] = dk(j)*re[k]; 
 	}
+	
 	for(k=1; 2*k <= M-4; k++){
 		j = 2*k;
 		f[j] += dk(j-2)*ggk(j-2)*re[k-1]; 
@@ -101,6 +110,7 @@ void BVP4pg::solve(const double *restrict fi, double *restrict u){
 		j = 2*k;
 		f[j] += dk(j-4)*gk(j-4)*re[k-2];
 	}
+
 	j = 2*k;
 	if (j <= M){
 		f[j] = dk(j-2)*ggk(j-2)*re[k-1] 
@@ -124,13 +134,14 @@ void BVP4pg::solve(const double *restrict fi, double *restrict u){
 		j = 2*k + 1;
 		f[j] += dk(j-4)*gk(j-4)*ro[k-2];
 	}
-	j = 2*k;
+
+	j = 2*k+1;
 	if (j <= M){
 		f[j] = dk(j-2)*ggk(j-2)*ro[k-1] 
 			+  dk(j-4)*gk(j-4)*ro[k-2];
 	}
 	k += 1;
-	j = 2*k;
+	j = 2*k+1;
 	if (j <= M){
 		f[j] = dk(j-4)*gk(j-4)*ro[k-2];
 	}
