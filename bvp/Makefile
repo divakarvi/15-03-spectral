@@ -38,4 +38,14 @@ test_bvp4.exe: test_bvp4.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
 	../fft/trig.o						\
 	../banded/tridiag.o ../banded/banded.o
 
+accuracy.o: accuracy.cpp
+include accuracy.d
+
+accuracy.exe: accuracy.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
+	../utils ../fft ../banded ../pyplot			\
+	../utils/utils.o					\
+	../pyplot/pyplot.o					\
+	../fft/trig.o						\
+	../banded/tridiag.o ../banded/banded.o
+
 
