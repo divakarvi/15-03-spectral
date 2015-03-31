@@ -27,6 +27,8 @@ PyPlot::PyPlot(const char* namei, enum pipe_type pipe){
 
 	sprintf(cmdstr, "import matplotlib as mpl\n");
 	issue_command(cmdstr);
+	sprintf(cmdstr, "mpl.rcParams['font.size'] = 18\n");
+	issue_command(cmdstr);
 
 	/*
 	 * change backend if PLTOFF
