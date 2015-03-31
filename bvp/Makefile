@@ -1,7 +1,7 @@
 include ../makevars.mk
 CFLAGSXX := $(MKLINC) -openmp #omp for test_bvpi, timeit
-LIBS := $(MKLLIBS) -openmp #omp for test_bvpi, timeit
-MODS := ../utils ../fft ../banded ../pyplot
+LIBS := $(MKLLIBS) -openmp -lifcore #omp for test_bvpi, timeit
+MODS := ../utils ../fft ../banded ../pyplot ../legendre
 #########
 .PHONY: $(MODS)
 $(MODS):
@@ -32,11 +32,12 @@ test_bvp4.o: test_bvp4.cpp
 include test_bvp4.d
 
 test_bvp4.exe: test_bvp4.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
-	../utils ../fft ../banded ../pyplot			\
+	../utils ../fft ../banded ../pyplot ../legendre		\
 	../utils/utils.o					\
 	../pyplot/pyplot.o					\
 	../fft/trig.o						\
-	../banded/tridiag.o ../banded/banded.o
+	../banded/tridiag.o ../banded/banded.o			\
+	../legendre/legcheb.o ../legendre/legendre.o
 
 accuracy.o: accuracy.cpp
 include accuracy.d

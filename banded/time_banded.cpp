@@ -150,16 +150,18 @@ int main(){
 	int nrhs[] = {1, 2, 10, -1};
 
 	for(int i=0; i < 4; i++){
-		print_info(16, nrhs[i]);
-		print_cholesky_info(16, nrhs[i]);
-		print_info(32, nrhs[i]);
-		print_cholesky_info(32, nrhs[i]);
 		print_info(64, nrhs[i]);
 		print_cholesky_info(64, nrhs[i]);
 		print_info(128, nrhs[i]);
 		print_cholesky_info(128, nrhs[i]);
 		print_info(256, nrhs[i]);
 		print_cholesky_info(256, nrhs[i]);
+		print_info(1024, nrhs[i]);
+		print_cholesky_info(1024, nrhs[i]);
+		print_info(1024*16, nrhs[i]);
+		print_cholesky_info(1024*16, nrhs[i]);
+		print_info(1024*64, nrhs[i]);
+		print_cholesky_info(1024*64, nrhs[i]);
 	}
 
 	/*

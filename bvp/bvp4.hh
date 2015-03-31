@@ -2,6 +2,7 @@
 #define __BVP22Mar15DV__
 #include "../banded/banded.hh"
 #include "../fft/trig.hh"
+#include "../legendre/legendre.hh"
 #include "bvpi.hh"
 
 /*
@@ -68,6 +69,7 @@ private:
 	CholeskyBanded even;
 	CholeskyBanded odd;
 	double *space;
+	FLTrans flt;
 public:
 	BVP4pg(double aa, double bb, int MM);
 	~BVP4pg();

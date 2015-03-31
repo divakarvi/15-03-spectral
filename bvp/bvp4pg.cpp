@@ -14,11 +14,13 @@
 #define ck(k) (-2.0*(2*(k)+3.0)*dk(k)*dk(k)*hk(k))
 #define ckp2(k) (-2.0*(2.0*(k)+3)*dk(k)*dk((k)+2))
 #define ggk(k) (-2.0*(2*(k)+5)/(2*(k)+7))
+#define lk(k) (2.0/(2.0*(k)+1))
 
 BVP4pg::BVP4pg(double aa, double bb, int MM)
 	:a(aa), b(bb), M(MM),
 	Me((M-3+(1-M%2))/2), Mo((M-3-(1-M%2))/2),
-	even(Me), odd(Mo)
+	even(Me), odd(Mo),
+	 flt(M) 
 {
 	space = new double[2*(M+1)];
 	
@@ -72,29 +74,22 @@ void BVP4pg::solve(const double *restrict fi, double *restrict u){
 	/*
 	 * take Legendre transform of f
 	 */
+	flt.fwd(f);
 
 	double *restrict re = f + (M + 1);
 	double *restrict ro = re + (M-3+(1-M%2))/2;
 	
 	for(int k=0; 2*k <= M-4; k++)
-		re[k] = dk(2*k)*(f[2*k] 
-				 + ggk(2*k)*f[2*k+2]
-				 + gk(2*k)*f[2*k+4]);
+		re[k] = dk(2*k)*(f[2*k]*lk(2*k)
+				 + ggk(2*k)*f[2*k+2]*lk(2*k+2)
+				 + gk(2*k)*f[2*k+4]*lk(2*k+4));
 	even.solve(re, 1);
 
 	for(int k=0; 2*k+1 <= M-4; k++)
-		ro[k] = dk(2*k+1)*(f[2*k+1] 
-				 + ggk(2*k+1)*f[2*k+1+2]
-				 + gk(2*k+1)*f[2*k+1+4]);
+		ro[k] = dk(2*k+1)*(f[2*k+1]*lk(2*k+1)
+				   + ggk(2*k+1)*f[2*k+1+2]*lk(2*k+3)
+				   + gk(2*k+1)*f[2*k+1+4]*lk(2*k+5));
 	odd.solve(ro, 1);
-	
-	/*
-	 *dbg
-	 */
-	for(int k=0; k < Me; k++)
-		re[k] = 2*k;
-	for(int k=0; k < Mo; k++)
-		ro[k] = 2*k+1;
 	
 	int j, k;
 	for(k=0; 2*k <= M-4; k++){
@@ -149,6 +144,9 @@ void BVP4pg::solve(const double *restrict fi, double *restrict u){
 	/*
 	 * inverse Legendre transform f to u
 	 */
+	flt.bwd(f);
+	for(int i=0; i <= M; i++)
+		u[i] = f[i];
 }
 
 
