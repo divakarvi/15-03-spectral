@@ -43,20 +43,21 @@ accuracy.o: accuracy.cpp
 include accuracy.d
 
 accuracy.exe: accuracy.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
-	../utils ../fft ../banded ../pyplot			\
+	../utils ../fft ../banded ../pyplot ../legendre		\
 	../utils/utils.o					\
 	../pyplot/pyplot.o					\
 	../fft/trig.o						\
-	../banded/tridiag.o ../banded/banded.o
+	../banded/tridiag.o ../banded/banded.o			\
+	../legendre/legcheb.o ../legendre/legendre.o
 
 timeit.o: timeit.cpp
 include timeit.d
 
-timeit.exe: timeit.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
-	../utils ../fft ../banded ../pyplot			\
+timeit.exe: timeit.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o		\
+	../utils ../fft ../banded ../pyplot ../legendre		\
 	../utils/utils.o					\
 	../pyplot/pyplot.o					\
 	../fft/trig.o						\
-	../banded/tridiag.o ../banded/banded.o
-
+	../banded/tridiag.o ../banded/banded.o			\
+	../legendre/legcheb.o ../legendre/legendre.o
 

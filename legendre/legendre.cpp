@@ -16,7 +16,7 @@ FLTrans::FLTrans(int MM)
 	:M(MM), dct(M)
 {
 	assrt(pow2(M) == 1 && M >= 64);
-	wsave = new double[199*375*M];
+	wsave = new double[1l*199*375*M];
 	plini_(&M, wsave);
 }
 

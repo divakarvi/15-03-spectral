@@ -55,6 +55,100 @@ void alphabeta2ab(enum  SOLVER solver, double alpha, double beta,
 	}
 }
 
+void incache(int count, enum SOLVER solver, int M, struct ab_struct ab, 
+	     double *f, double *u){
+	switch(solver){
+	case FAC:
+		{
+			BVP4fac bvp4(ab.a, ab.b, M);
+			for(long i=0; i < count; i++)
+				bvp4.solve(f, u);
+		}
+		break;
+	case SI:
+		{
+			BVP4si bvp4(ab.a, ab.b, M);
+			for(long i=0; i < count; i++)
+				bvp4.solve(f, u);
+		}
+		break;
+	case PG:
+		{
+			BVP4pg bvp4(ab.a, ab.b, M);
+			for(long i=0; i < count; i++)
+				bvp4.solve(f, u);
+		}
+		break;
+	}
+}
+
+
+void outcache(int count, enum SOLVER solver, int M, struct ab_struct ab, 
+	      double *f, double *u){
+	switch(solver){
+	case FAC:
+		{
+			BVP4fac bvp4(ab.a, ab.b, M);
+			for(long i=0; i < count; i++)
+				bvp4.solve(f+i*(M+1), u+i*(M+1));
+		}
+		break;
+	case SI:
+		{
+			BVP4si bvp4(ab.a, ab.b, M);
+			for(long i=0; i < count; i++)
+				bvp4.solve(f+i*(M+1), u+i*(M+1));
+		}
+		break;
+	case PG:
+		{
+			BVP4pg bvp4(ab.a, ab.b, M);
+			for(long i=0; i < count; i++)
+				bvp4.solve(f+i*(M+1), u+i*(M+1));
+		}
+		break;
+	}
+}
+
+void thread(int count, enum SOLVER solver, int M, struct ab_struct ab, 
+	      double *f, double *u){
+	switch(solver){
+	case FAC:
+#pragma omp parallel num_threads(NTHREADS)
+		{
+			int t = omp_get_thread_num();
+			BVP4fac bvp4(ab.a, ab.b, M);
+			for(long i=count/NTHREADS*t; 
+			    i < count/NTHREADS*(t+1); i++)
+				bvp4.solve(f+i*(M+1), 
+					   u+i*(M+1));
+		}
+		break;
+	case SI:
+#pragma omp parallel  num_threads(NTHREADS)
+		{
+			int t = omp_get_thread_num();
+			BVP4si bvp4(ab.a, ab.b, M);
+			for(long i=count/NTHREADS*t; 
+			    i < count/NTHREADS*(t+1); i++)
+				bvp4.solve(f+i*(M+1), 
+					   u+i*(M+1));
+		}
+		break;
+	case PG:
+#pragma omp parallel  num_threads(NTHREADS)
+		{
+			int t = omp_get_thread_num();
+			BVP4pg bvp4(ab.a, ab.b, M);
+			for(long i=count/NTHREADS*t; 
+			    i < count/NTHREADS*(t+1); i++)
+				bvp4.solve(f+i*(M+1), 
+					   u+i*(M+1));
+		}
+		break;
+	}
+}
+
 /*
  * return num of cycles per solve/M
  */
@@ -100,66 +194,13 @@ double get_cycles(enum TRIAL trial, enum SOLVER solver,
 	clk.tic();
 	switch(trial){
 	case INCACHE:
-		switch(solver){
-		case FAC:
-			{
-				BVP4fac bvp4(ab.a, ab.b, M);
-				for(long i=0; i < count; i++)
-					bvp4.solve(f, u);
-			}
-			break;
-		case SI:
-			{
-				BVP4si bvp4(ab.a, ab.b, M);
-				for(long i=0; i < count; i++)
-					bvp4.solve(f, u);
-			}
-			break;
-		}
+		incache(count, solver, M, ab, f, u);
 		break;
 	case OUTCACHE:
-		switch(solver){
-		case FAC:
-			{
-				BVP4fac bvp4(ab.a, ab.b, M);
-				for(long i=0; i < count; i++)
-					bvp4.solve(f+i*(M+1), u+i*(M+1));
-			}
-			break;
-		case SI:
-			{
-				BVP4si bvp4(ab.a, ab.b, M);
-				for(long i=0; i < count; i++)
-					bvp4.solve(f+i*(M+1), u+i*(M+1));
-			}
-			break;
-		}
+		outcache(count, solver, M, ab, f, u);
 		break;
 	case THREAD:
-		switch(solver){
-		case FAC:
-#pragma omp parallel num_threads(NTHREADS)
-			{
-				int t = omp_get_thread_num();
-				BVP4fac bvp4(ab.a, ab.b, M);
-				for(long i=count/NTHREADS*t; 
-				    i < count/NTHREADS*(t+1); i++)
-					bvp4.solve(f+i*(M+1), 
-						   u+i*(M+1));
-				       }
-			break;
-		case SI:
-#pragma omp parallel  num_threads(NTHREADS)
-			{
-				int t = omp_get_thread_num();
-				BVP4si bvp4(ab.a, ab.b, M);
-				for(long i=count/NTHREADS*t; 
-				    i < count/NTHREADS*(t+1); i++)
-					bvp4.solve(f+i*(M+1), 
-						   u+i*(M+1));
-			}
-			break;
-		}
+		thread(count, solver, M, ab, f, u);
 		break;
 	}
 	double cycles = clk.toc();
@@ -180,8 +221,8 @@ void get_cyclelist(enum TRIAL trial, enum SOLVER solver,
 					  Mlist[i]);
 }
 
-int Mlist[11] = {32, 64, 128, 256, 512, 1024, 2048, 4096, 
-		 8192, 16384, 32768};
+int Mlist[11] = {64, 128, 256, 512, 1024, 2048, 4096, 
+		 8192, 16384, 32768, 32768*2};
 
 void plot(enum TRIAL trial, double alpha, double beta){
 	PyPlot plt("usinpixsq");//dbg here
@@ -201,6 +242,14 @@ void plot(enum TRIAL trial, double alpha, double beta){
 	plt.linestyle("--");
 	plt.linecolor("black");
 	plt.linewidth("3");
+	
+	if (trial != THREAD) {
+		get_cyclelist(trial, PG, alpha, beta, Mlist, cyclelist, 11);
+		plt.semilogx(mlist, cyclelist, 11);
+		plt.linestyle(":");
+		plt.linecolor("black");
+		plt.linewidth("3");
+	}
 
 	plt.show();
 }

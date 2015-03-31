@@ -69,7 +69,7 @@ double find_error(enum TRIAL trial, enum SOLVER solver,
 		  double alpha, double beta, int M){
 	struct ab_struct ab;
 	alphabeta2ab(solver, alpha, beta, &ab);
-	
+
 	double xx[M+1];
 	cheb(xx, M);
 	double u[M+1], f[M+1], ue[M+1];
@@ -120,8 +120,8 @@ void find_errlist(enum TRIAL trial, enum SOLVER solver,
 		errlist[i] = find_error(trial, solver, alpha, beta, Mlist[i]);
 }
 
-int Mlist[11] = {32, 64, 128, 256, 512, 1024, 2048, 4096, 
-		 8192, 16384, 32768};
+int Mlist[11] = {64, 128, 256, 512, 1024, 2048, 4096, 
+		 8192, 16384, 32768, 65536};
 
 void plot(enum TRIAL trial, double alpha, double beta){
 	PyPlot plt("usinpixsq");//dbg here
@@ -139,6 +139,12 @@ void plot(enum TRIAL trial, double alpha, double beta){
 	find_errlist(trial, SI, alpha, beta, Mlist, errlist, 11);
 	plt.loglog(mlist, errlist, 11);
 	plt.linestyle("--");
+	plt.linecolor("black");
+	plt.linewidth("3");
+
+	find_errlist(trial, PG, alpha, beta, Mlist, errlist, 11);
+	plt.loglog(mlist, errlist, 11);
+	plt.linestyle(":");
 	plt.linecolor("black");
 	plt.linewidth("3");
 
