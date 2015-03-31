@@ -124,7 +124,7 @@ int Mlist[11] = {32, 64, 128, 256, 512, 1024, 2048, 4096,
 		 8192, 16384, 32768};
 
 void plot(enum TRIAL trial, double alpha, double beta){
-	PyPlot plt("usinpixsq");
+	PyPlot plt("usinpixsq");//dbg here
 	double errlist[11];
 	double mlist[11];
 	for(int i=0; i < 11; i++)

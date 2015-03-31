@@ -1,6 +1,6 @@
 include ../makevars.mk
-CFLAGSXX := $(MKLINC) #-openmp #for test_bvpi
-LIBS := $(MKLLIBS) #-openmp #for test_bvpi
+CFLAGSXX := $(MKLINC) -openmp #omp for test_bvpi, timeit
+LIBS := $(MKLLIBS) -openmp #omp for test_bvpi, timeit
 MODS := ../utils ../fft ../banded ../pyplot
 #########
 .PHONY: $(MODS)
@@ -42,6 +42,16 @@ accuracy.o: accuracy.cpp
 include accuracy.d
 
 accuracy.exe: accuracy.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
+	../utils ../fft ../banded ../pyplot			\
+	../utils/utils.o					\
+	../pyplot/pyplot.o					\
+	../fft/trig.o						\
+	../banded/tridiag.o ../banded/banded.o
+
+timeit.o: timeit.cpp
+include timeit.d
+
+timeit.exe: timeit.o bvp4pg.o bvp4si.o bvp4fac.o bvpi.o	\
 	../utils ../fft ../banded ../pyplot			\
 	../utils/utils.o					\
 	../pyplot/pyplot.o					\
