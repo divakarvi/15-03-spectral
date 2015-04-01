@@ -6,7 +6,7 @@
 enum pipe_type {PLTOFF, PLTON};
 
 const int MAX_NUM_PYPLT_CMDS = 400;
-const int MAX_CMD_PYPLT_LEN = 300;
+const int MAX_CMD_PYPLT_LEN = 3000;
 
 class PyPlot{
 private:
@@ -87,6 +87,13 @@ public:
 	void yticks(double *ticks, int n);
 	void ticksize(const char *s);
 	/*
+	 * issues command to python pipe verbatim
+	 * last char of s must be '\n'
+	 * for python syntax inside s, ax and l are always available as
+	 * current axis and current line
+	 */
+	void pycmd(const char *s);
+	/*
 	 * function for showing/output
 	 * if PLTON then show plot
 	 * if PLTOFF then output to pdf
@@ -95,6 +102,7 @@ public:
 
 	/*
 	 * save python script in FIGS/
+	 * must be called AFTER show() at the very end
 	 */
 	void savescript();
 };

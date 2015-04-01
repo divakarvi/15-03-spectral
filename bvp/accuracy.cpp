@@ -124,7 +124,13 @@ int Mlist[11] = {64, 128, 256, 512, 1024, 2048, 4096,
 		 8192, 16384, 32768, 65536};
 
 void plot(enum TRIAL trial, double alpha, double beta){
-	PyPlot plt("usinpixsq");//dbg here
+	char name[100];
+	if (trial == SINPIX)
+		sprintf(name, "accuracy_sinpix");
+	else if(trial == ONE)
+		sprintf(name, "accuracy_blayer");
+	//PyPlot plt(name);
+	PyPlot plt(name, PLTOFF);//PLTOFF for pdf
 	double errlist[11];
 	double mlist[11];
 	for(int i=0; i < 11; i++)
@@ -147,11 +153,26 @@ void plot(enum TRIAL trial, double alpha, double beta){
 	plt.linestyle(":");
 	plt.linecolor("black");
 	plt.linewidth("3");
+	
+	const char* cmds = "plt.legend(['FAC', 'SI', 'PG'], loc = 'lower left')"
+		"\n"
+		"ax.set_xticks([2**6, 2**7, 2**8, 2**9, 2**10,"
+		"2**11, 2**12, 2**13, 2**14, 2**15, 2**16])"
+		"\n"
+		"ax.set_xticklabels([r'$2^6$', r'$2^7$', "
+		"r'$2^8$', r'$2^9$', r'$2^{10}$', r'$2^{11}$', r'$2^{12}$'," 
+		"r'$2^{13}$', r'$2^{14}$', r'$2^{15}$', r'$2^{16}$'])"
+		"\n"
+		"plt.xlabel('M', fontsize=20)"
+		"\n"
+		"plt.ylabel('Error', fontsize=14)"
+		"\n";
+	plt.pycmd(cmds);
 
 	plt.show();
 }
 
 int main(){
-	plot(SINPIX, 1.0, 2.0);
+	plot(SINPIX, 1e3, 1e6);
 	plot(ONE, 1e3, 1e6);
 }

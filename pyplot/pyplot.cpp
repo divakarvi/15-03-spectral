@@ -69,7 +69,11 @@ PyPlot::~PyPlot(){
 
 void PyPlot::issue_command(const char *cstr){
 	assrt(cmdnum < MAX_NUM_PYPLT_CMDS);
-	strcpy(cmd[cmdnum], cmdstr);
+	int len = strlen(cstr);
+	assrt(len < MAX_CMD_PYPLT_LEN-1);
+	assrt(cstr[len-1] == '\n');
+	
+	strcpy(cmd[cmdnum], cstr);
 	fprintf(pypipe, "%s", cmd[cmdnum++]);
 }
 
@@ -223,6 +227,12 @@ void PyPlot::yticks(double *y, int n){
 void PyPlot::ticksize(const char* s){
 	sprintf(cmdstr, "ax.tick_params(labelsize = %s)\n", s);
 	issue_command(cmdstr);
+}
+
+void PyPlot::pycmd(const char* s){
+	int len = strlen(s);
+	assrt(s[len-1] == '\n');
+	issue_command(s);
 }
 
 void PyPlot::show(){

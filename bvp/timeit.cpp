@@ -158,7 +158,7 @@ double get_cycles(enum TRIAL trial, enum SOLVER solver,
 	alphabeta2ab(solver, alpha, beta, &ab);
 
 	long memone = 2*(M+1)*8;
-	long count = 1l*1000*1000*1000/memone;
+	long count = 1l*1000*1000*1000*16/memone;
 	printf("count = %ld\n", count);
 	double *u = (double *)malloc(count*(M+1)*sizeof(double));
 	double *f = (double *)malloc(count*(M+1)*sizeof(double));
@@ -225,7 +225,21 @@ int Mlist[11] = {64, 128, 256, 512, 1024, 2048, 4096,
 		 8192, 16384, 32768, 32768*2};
 
 void plot(enum TRIAL trial, double alpha, double beta){
-	PyPlot plt("usinpixsq");//dbg here
+	char name[100];
+	switch(trial){
+	case INCACHE:
+		sprintf(name, "timeit_incache");
+		break;
+	case OUTCACHE:
+		sprintf(name, "timeit_outcache");
+		break;
+	case THREAD:
+		sprintf(name, "timeit_thread");
+		break;
+		
+	}
+	//PyPlot plt(name);
+	PyPlot plt(name, PLTOFF);//for gen pdf
 	double cyclelist[11];
 	double mlist[11];
 	for(int i=0; i < 11; i++)
@@ -250,6 +264,21 @@ void plot(enum TRIAL trial, double alpha, double beta){
 		plt.linecolor("black");
 		plt.linewidth("3");
 	}
+
+	const char* cmds = "plt.legend(['FAC', 'SI', 'PG'], loc = 'upper left')"
+		"\n"
+		"ax.set_xticks([2**6, 2**7, 2**8, 2**9, 2**10,"
+		"2**11, 2**12, 2**13, 2**14, 2**15, 2**16])"
+		"\n"
+		"ax.set_xticklabels([r'$2^6$', r'$2^7$', "
+		"r'$2^8$', r'$2^9$', r'$2^{10}$', r'$2^{11}$', r'$2^{12}$'," 
+		"r'$2^{13}$', r'$2^{14}$', r'$2^{15}$', r'$2^{16}$'])"
+		"\n"
+		"plt.xlabel('M', fontsize=20)"
+		"\n"
+		"plt.ylabel('Cycles/M', fontsize=14)"
+		"\n";
+	plt.pycmd(cmds);
 
 	plt.show();
 }

@@ -422,13 +422,13 @@ void bvp4pgD(){
 }
 
 int main(){
-	//bvp4facA();
-	//bvp4facB();
+	bvp4facA();
+	bvp4facB();
 	//bvp4si_solvep();
 	//bvp4siA();
 	//bvp4siB();
 	//bvp4pgA();
 	//bvp4pgB();
 	//bvp4pgC();
-	bvp4pgD();
+	//bvp4pgD();
 }

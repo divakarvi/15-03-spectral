@@ -4,6 +4,7 @@
 #include "../fft/trig.hh"
 
 void cheb(double *restrict x, int M);
+enum BVPISOLVE {BVP4FACFST, BVP4FACSND, NOTFAC};
 
 class BVPSolvei{
 private:
@@ -29,7 +30,8 @@ public:
 	 * particular soln(s) of (D^2 - a^2)u = f
 	 */
 	void solvep(const double *restrict f,
-		    double *restrict u, double *restrict du, int nrhs);
+		    double *restrict u, double *restrict du, int nrhs,
+		    enum BVPISOLVE flag = NOTFAC);
 	/*
 	 * particular soln(s) of (D^2 - a^2)u = f + dg/dy
 	 */

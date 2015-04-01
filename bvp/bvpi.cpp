@@ -93,7 +93,8 @@ void BVPSolvei::inithmg(){
 }
 
 void BVPSolvei::solvep(const double *restrict f,
-		       double *restrict u, double *restrict du, int nrhs){
+		       double *restrict u, double *restrict du, int nrhs,
+		       enum BVPISOLVE flag){
 	assrt(state==4);
 	
 	/*
@@ -102,13 +103,15 @@ void BVPSolvei::solvep(const double *restrict f,
 	for(int i=0; i < nrhs*(M+1); i++)
 		du[i] = f[i];
 
+	
 	/*
-	 * find cheb coeffs of f copied to du
+	 * find cheb coeffs of f copied to du, but omit if BVP4FACSND
 	 */
-	for(int i=0; i < nrhs; i++){
-		trig->fwd(du+i*(M+1));
-		du[M+i*(M+1)] = 0;
-	}
+	if (flag != BVP4FACSND)
+		for(int i=0; i < nrhs; i++){
+			trig->fwd(du+i*(M+1));
+			du[M+i*(M+1)] = 0;
+		}
 	
 	{
 		double *restrict scre = u;
@@ -162,12 +165,13 @@ void BVPSolvei::solvep(const double *restrict f,
 	}
 
 	/*
-	 * transform u and du from cheb to space domain
+	 * transform u and du from cheb to space domain, but omit if BVP4FACFST
 	 */
-	for(int i=0; i < nrhs; i++){
-		trig->bwd(u+i*(M+1));
-		trig->bwd(du+i*(M+1));
-	}
+	if(flag != BVP4FACFST)
+		for(int i=0; i < nrhs; i++){
+			trig->bwd(u+i*(M+1));
+			trig->bwd(du+i*(M+1));
+		}
 }
 
 /*
