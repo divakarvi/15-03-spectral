@@ -231,6 +231,7 @@ void PyPlot::ticksize(const char* s){
 
 void PyPlot::pycmd(const char* s){
 	int len = strlen(s);
+	assrt(len < MAX_CMD_PYPLT_LEN-1);
 	assrt(s[len-1] == '\n');
 	issue_command(s);
 }
